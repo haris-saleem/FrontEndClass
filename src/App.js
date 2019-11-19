@@ -4,7 +4,7 @@ import NavBar from './NavBar';
 import Jumbotron from './Jumbotron';
 import Feed from './Feed'
 import './App.css';
-
+import  CounterButton from './CounterButton'
 //this is just an example button example.
 
 const Button = (prop) => {  // prop can be called anything. prop here is an argument here and prop also act as compenent
@@ -46,7 +46,14 @@ const App= ()=> {
       description ="Welcome to ABC.com, the biggest platform for the alpabet."
       moreinfo = "Click here to learn more about learning ABC"
       buttonLabel = "Start"/>
+      <Jumbotron title="Registration"
+        lead = "Welcome to Registration form"
+        moreInfo = "FOr more infor please....."
+        buttonLabel = "Signin"
+      />
 
+
+      <CounterButton/>
 <div className="container">
         
         {
