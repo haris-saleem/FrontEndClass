@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+/*  text-align: center; */
 }
 
 .App-logo {
@@ -19,4 +19,24 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.jumbotron {
+  text-align: center;
+}
+
+.registration-form {
+  max-width: 600px;
+  padding: 24px;
+  background: #e9ecef;
+}
+.card {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+.card img {
+  background: darkgray;
+  min-height: 200px;
 }
