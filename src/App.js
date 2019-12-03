@@ -1,11 +1,11 @@
 import React,{useState,useEffect} from 'react';
 import logo from './logo.svg';
 import NavBar from './NavBar';
-import Jumbotron from './Jumbotron';
+//import Jumbotron from './Jumbotron';
 import Feed from './Feed'
 import Form from './Form' //registration form
 import './App.css';
-import  CounterButton from './CounterButton'
+//import  CounterButton from './CounterButton'
 import  LoginForm from './LoginForm'
 
 
@@ -55,8 +55,8 @@ const App= ()=> {
 
 const [globalState, setGlobalState] = useState(
   {
-      user: {},
-      loggedIn: sessionStorage.getItem('jwt')? 'true':'false'
+      userid: sessionStorage.getItem('userid') ? sessionStorage.getItem('userid') : null,
+      loggedin: sessionStorage.getItem('jwt')? 'true':'false'
   }
 )
 
@@ -76,7 +76,7 @@ useEffect(()=>{
 }
 });
 
-let posts;
+
 /*
 fetch('http://localhost:3001/feed/all')//Promise
 .then(response=>response.json())//promise
@@ -84,19 +84,19 @@ fetch('http://localhost:3001/feed/all')//Promise
 .catch(e=>console.log('error', e))
 *///not using
 
- const isLoading = false;
+ 
 
  return (
   <AppContext.Provider value={[globalState, setGlobalState]}>
   <div className="App">
     <NavBar logo = {logo}/>
-    <Form></Form>
+    
 
-{ globalState.loggedIn !== 'true' && <LoginForm />}
+{ globalState.loggedin !== 'true' && <LoginForm />}
 
-       <h1>{globalState.loggedIn}</h1>
+       <h1>{globalState.loggedin}</h1>
 { 
-  globalState.loggedIn === 'true' && 
+  globalState.loggedin === 'true' && 
       <div className="container">        
           { 
               state.posts.map(
@@ -105,7 +105,8 @@ fetch('http://localhost:3001/feed/all')//Promise
                   image={post.image}
                   title={post.username}
                   description={post.comment}
-                  buttonLabel="Read more"
+                  buttonLabel= {
+                    post.likes.includes(globalState.userid) ? 'Unlike' : 'Like'}
                   />
               )
           }
@@ -171,4 +172,3 @@ prop={
             /> 
 
 */
-

@@ -6,13 +6,13 @@ const LoginForm = () => {
     let email,password;
 
     const[state,setState]=useState(
-        {loginSucess:null}
+        {loginSuccess:null}
     )
 
     const [globalState,setGlobalState] = useContext(AppContext);    
 
     const loginUser = async() =>{
-        let response = await fetch('http://localhost:3001/user/login',{
+        let response = await fetch('http://localhost:3001/users/login',{
             method:'POST',
             body:JSON.stringify(
              {
@@ -29,11 +29,17 @@ const LoginForm = () => {
 
         if(json.token){
             //Change the local State
-            setState({...state,loginSucess:'true'});
+            setState({...state,loginSuccess:'true'});
             //change the global state
-            setGlobalState({...globalState,loggedIn:'true'})
+            setGlobalState({
+                ...globalState,
+                loggedin:'true',
+                userid:json.userid
+            });
 
-            sessionStorage.setItem('jwt',json.token)
+            sessionStorage.setItem('jwt',json.token);
+            sessionStorage.setItem('userid', json.userid);
+
 
         }
 
@@ -70,11 +76,20 @@ const LoginForm = () => {
                 />
             </div>           
             <button 
-                type="submit" 
+                type="submit" np
                 className="btn btn-primary"
                 onClick={loginUser}
             >Login</button>
-
+            {
+                state.loginSuccess &&
+                <div 
+                    className="alert alert-success" 
+                    role="alert" 
+                >
+                    You're now logged in!
+                </div>
+            }
+            
             </div>        
             )
         }

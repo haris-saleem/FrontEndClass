@@ -61,7 +61,7 @@ let firstName, lastName, email, password, occupation, termsConditions;
         let json = await response.json() //resopnse from where??
 
         console.log('reponse from amingo',json)
-        setState({...state,registrationSuccess:true, error:[]})
+        setState({...state,RegistrationSuccess:true, error:[]})
 
         }
     }
@@ -160,7 +160,7 @@ let firstName, lastName, email, password, occupation, termsConditions;
             } 
 
             {
-                state.registrationSuccess &&
+                state.RegistrationSuccess &&
                 <div 
                     className="alert alert-success" 
                     role="alert" 
