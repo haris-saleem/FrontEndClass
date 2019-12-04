@@ -1,10 +1,9 @@
-import React,{useState,useEffect} from 'react';
-import logo from './logo.svg';
-import NavBar from './NavBar';
+import React,{useState,useEffect,useContext} from 'react';
+
 //import Jumbotron from './Jumbotron';
 import Feed from './Feed'
 import Form from './Form' //registration form
-import './App.css';
+
 //import  CounterButton from './CounterButton'
 import  LoginForm from './LoginForm'
 
@@ -53,15 +52,11 @@ const App= ()=> {
     }
 )
 
-const [globalState, setGlobalState] = useState(
-  {
-      userid: sessionStorage.getItem('userid') ? sessionStorage.getItem('userid') : null,
-      loggedin: sessionStorage.getItem('jwt')? 'true':'false'
-  }
-)
+const [globalState,setGlobalState] = useContext(AppContext);
 
-useEffect(()=>{
-  if(!state.postsLoaded) {
+
+//useEffect(()=>{
+/*  if(!state.postsLoaded) {
   fetch('http://localhost:3001/feed/all')
   .then(response =>response.json())
   .then(json=>{
@@ -75,8 +70,8 @@ useEffect(()=>{
 
 }
 });
-
-
+*/ 
+//commmented above on 03-dec
 /*
 fetch('http://localhost:3001/feed/all')//Promise
 .then(response=>response.json())//promise
@@ -87,14 +82,11 @@ fetch('http://localhost:3001/feed/all')//Promise
  
 
  return (
-  <AppContext.Provider value={[globalState, setGlobalState]}>
-  <div className="App">
-    <NavBar logo = {logo}/>
+  <div className="page">
     
-
 { globalState.loggedin !== 'true' && <LoginForm />}
 
-       <h1>{globalState.loggedin}</h1>
+      
 { 
   globalState.loggedin === 'true' && 
       <div className="container">        
@@ -114,8 +106,7 @@ fetch('http://localhost:3001/feed/all')//Promise
   }
       
   </div>
-    
-    </AppContext.Provider>  
+ 
   );
   
 };
