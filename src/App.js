@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react';
 
-//import Jumbotron from './Jumbotron';
+import Jumbotron from './Jumbotron';
 import Feed from './Feed'
 import Form from './Form' //registration form
 
@@ -55,8 +55,8 @@ const App= ()=> {
 const [globalState,setGlobalState] = useContext(AppContext);
 
 
-//useEffect(()=>{
-/*  if(!state.postsLoaded) {
+useEffect(()=>{
+  if(!state.postsLoaded) {
   fetch('http://localhost:3001/feed/all')
   .then(response =>response.json())
   .then(json=>{
@@ -70,8 +70,8 @@ const [globalState,setGlobalState] = useContext(AppContext);
 
 }
 });
-*/ 
-//commmented above on 03-dec
+ 
+
 /*
 fetch('http://localhost:3001/feed/all')//Promise
 .then(response=>response.json())//promise
@@ -98,7 +98,8 @@ fetch('http://localhost:3001/feed/all')//Promise
                   title={post.username}
                   description={post.comment}
                   buttonLabel= {
-                    post.likes.includes(globalState.userid) ? 'Unlike' : 'Like'}
+                    post.likes.includes(globalState.userid) ? 'Unlike' : 'Like'
+                  }
                   />
               )
           }

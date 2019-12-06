@@ -11,7 +11,7 @@ const Contact=()=>{
         <div classsName="page">
 
             <h1>Contact</h1>
-            <p>{globalState.id}</p>
+            <p>{globalState.userid}</p>
         </div>
 
     )

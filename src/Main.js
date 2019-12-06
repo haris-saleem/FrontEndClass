@@ -1,8 +1,9 @@
 import React, {useState,useEffect} from 'react';
-import {BrowserRouter,Route,Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import logo from  './logo.svg';
 import './App.css';
+
 import App from './App';
 import AppContext from './Appcontext';
 

@@ -1,8 +1,8 @@
 import React,{useContext} from 'react';
 import {Link} from 'react-router-dom';
-import Login from './LoginButton'
-import AppContext from './Appcontext'
 import LoginButton from './LoginButton';
+import AppContext from './Appcontext';
+
 
 const NavBar = (prop) => {     //we added prop to add the icon.
   
